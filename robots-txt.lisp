@@ -10,10 +10,11 @@
 ;;; Create a DISALLOWED-TABLE with MAKE-DISALLOWED-TABLE providing the ROBOTS.TXT content as a string.
 ;;; Query DISALLOWED-P with the DISALLOWED-TABLE and a User-Agent and Path.
 
-(defpackage gnv/robots-txt
-  (:use :cl))
+(defpackage "ROBOTS-TXT"
+  (:use :cl)
+  (:export #:make-disallowed-table #:disallowed-p))
 
-(in-package :gnv/robots-txt)
+(in-package :robots-txt)
 
 ;; API
 
@@ -32,7 +33,7 @@
 
 ;; Parser
 
-(defconstant +whitespace+ '(#\Space #\Tab #\Newline))
+(defparameter +whitespace+ '(#\Space #\Tab #\Newline))
 
 (defun make-disallowed-table (robots-txt)
   "Parses a robots.txt string and returns a disallowed-table which is later used by DISALLOWED-P."
@@ -45,7 +46,7 @@
                  (list (string-trim +whitespace+ key) 
                        (string-trim +whitespace+ value)))))))                  
       (with-input-from-string (stream robots-txt)
-        (loop with parser-table = (make-hash-table :test #'string-equal)
+        (loop with parser-table = (make-hash-table :test #'equalp)
               and disallow-state = NIL
               and current-agents = NIL
               for line = (read-line stream nil :eof)

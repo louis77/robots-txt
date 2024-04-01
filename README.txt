@@ -14,7 +14,7 @@ Usage:
 
 1. Create a DISALLOWED-TABLE with MAKE-DISALLOWED-TABLE providing the ROBOTS.TXT content as a string.
 
-CL-USER > (setf *my-robots-txt* (robots-txt:make-disallowed-table "User-agent: researcher
+CL-USER > (defparameter *my-robots-txt* (robots-txt:make-disallowed-table "User-agent: researcher
 User-agent: indexer
 User-agent: archiver
 Disallow: /v/search
