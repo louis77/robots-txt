@@ -12,7 +12,7 @@ Either clone it into your ~/common-lisp directory or fetch from Ultralisp:
  
 Usage:
 
-1. Create a DISALLOWED-TABLE with MAKE-DISALLOWED-TABLE providing the ROBOTS.TXT content as a string.
+1. Create a DISALLOWED-TABLE with MAKE-DISALLOWED-TABLE providing the ROBOTS.TXT content as a STRING (the whole file), a STREAM or a LIST of strings (where every element is a line).
 
 CL-USER > (defparameter *my-robots-txt* (robots-txt:make-disallowed-table "User-agent: researcher
 User-agent: indexer

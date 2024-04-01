@@ -1,0 +1,16 @@
+CHANGELOG
+
+All notable changes to this project will be documented in this file.
+
+* 2024-04-01
+
+** Changed
+
+- MAKE-DISALLOWED-TABLE now accepts STRING, LIST of STRING or STREAM
+
+** 2024-03-31 
+
+*** Added
+
+- Added MAKE-DISALLOWED-TABLE
+- Added DISALLOWED-P
